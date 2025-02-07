@@ -1,6 +1,6 @@
+#include <catch2/catch_all.hpp>
 #include <chrono>
 #include <string>
-#include <catch2/catch_all.hpp>
 #include "../schedule.hpp"
 
 using namespace std::chrono_literals;
