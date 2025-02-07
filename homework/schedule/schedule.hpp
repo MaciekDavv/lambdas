@@ -1,5 +1,4 @@
 #pragma once
-
 #include <chrono>
 #include <thread>
 #include <functional>
@@ -25,4 +24,10 @@ auto schedule(std::function<void(std::string, double)> func,
                                  double notUseDouble) {
     std::this_thread::sleep_for(time);
     func(notUseString, notUseDouble);
+}
+
+template <typename Func, typename Time, typename... Args>
+auto schedule(Func&& func, Time time, Args... args) {
+    std::this_thread::sleep_for(time);
+    std::invoke(std::forward<Func>(func), std::forward<Args>(args)...);
 }
